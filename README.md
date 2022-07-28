@@ -76,7 +76,10 @@ classDiagram
 
 ```
 
-## Things You Need To Know
+## Key Concept
+- I have used DB View to merge 3 tables in one to get all assets into one list. [see this for more info](/db/migrate/20220727233954_create_properties.rb)
+
+## Other Things You Need To Know
 
 * Ruby version: 3.2.0-preview1
 
