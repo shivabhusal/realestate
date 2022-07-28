@@ -12,7 +12,8 @@ class OrdersController < ApplicationController
   end
 
   def create
-    Order.create! user: current_user, buyable: @asset
+    order = Order.create! user: current_user, buyable: @asset
+    BuyPropertyJob.perform_later(order)
     redirect_back fallback_location: root_path, notice: 'Property buying request has been filed. You will get an email for confirmation in a while.'
   end
 
