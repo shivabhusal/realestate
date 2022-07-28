@@ -1,11 +1,19 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
   devise_for :users
+
+  # TODO: need to guard it with devise to only allow admin users
   namespace :admin do
-      resources :houses
-      resources :complex_buildings
-      resources :commercial_units
-      root to: "houses#index"
+    authenticate :user do
+      mount Sidekiq::Web => '/sidekiq'
     end
+
+    resources :houses
+    resources :complex_buildings
+    resources :commercial_units
+    root to: "houses#index"
+  end
+
   get 'pages/home'
 
   resources :orders, only: %i(new create)
