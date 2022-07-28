@@ -74,4 +74,9 @@ class ComplexBuildingDashboard < Administrate::BaseDashboard
   # def display_resource(complex_building)
   #   "ComplexBuilding ##{complex_building.id}"
   # end
+
+  # permitted for has_many_attached
+  def permitted_attributes
+    super + [:pictures => []]
+  end
 end

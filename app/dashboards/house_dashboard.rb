@@ -80,4 +80,9 @@ class HouseDashboard < Administrate::BaseDashboard
   # def display_resource(house)
   #   "House ##{house.id}"
   # end
+
+  # permitted for has_many_attached
+  def permitted_attributes
+    super + [:pictures => []]
+  end
 end

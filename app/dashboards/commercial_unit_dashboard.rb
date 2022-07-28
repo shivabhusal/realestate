@@ -77,4 +77,9 @@ class CommercialUnitDashboard < Administrate::BaseDashboard
   # def display_resource(commercial_unit)
   #   "CommercialUnit ##{commercial_unit.id}"
   # end
+
+  # permitted for has_many_attached
+  def permitted_attributes
+    super + [:pictures => []]
+  end
 end
