@@ -1,3 +1,22 @@
+# == Schema Information
+#
+# Table name: properties
+#
+#  id         :integer
+#  owner      :string
+#  address    :string
+#  sqmt       :integer
+#  price      :decimal(, )
+#  floors     :integer
+#  air_cond   :boolean
+#  rooms      :integer
+#  kind       :
+#  parking    :
+#  shops      :
+#  units      :
+#  created_at :datetime
+#  updated_at :datetime
+#
 class Property < ApplicationRecord
   paginates_per 9
 
