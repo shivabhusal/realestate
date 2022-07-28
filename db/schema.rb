@@ -41,6 +41,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_28_014049) do
 
   create_table "commercial_units", force: :cascade do |t|
     t.string "owner"
+    t.string "owner_email"
     t.string "address"
     t.integer "shops"
     t.integer "sqmt"
@@ -52,6 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_28_014049) do
 
   create_table "complex_buildings", force: :cascade do |t|
     t.string "owner"
+    t.string "owner_email"
     t.string "address"
     t.integer "units"
     t.integer "sqmt"
@@ -62,6 +64,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_28_014049) do
 
   create_table "houses", force: :cascade do |t|
     t.string "owner"
+    t.string "owner_email"
     t.string "address"
     t.integer "rooms"
     t.integer "sqmt"
