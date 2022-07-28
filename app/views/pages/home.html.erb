@@ -1,2 +1,46 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Properties</h1>
+<main id="home">
+  <div class="row">
+    <%= paginate @assets %>
+
+    <% @assets.each do |asset| %>
+      <div class="col-md-4" >
+        <div class="card w-100 my-4" style="width: 18rem;">
+          <%= image_tag url_for(asset.pictures.first) %>
+          <a class="card-body" href="<%= [asset.kind.underscore.pluralize, asset.id].join('/') %>">
+            <p><%= asset.address %></p>
+            <p>
+              <i class="fas fa-money-bill-alt"></i> Price: $<%= asset.price %>
+              <br>
+              <% if asset.units.present? %>
+                <i class="fas fa-home"></i> Units: <%= asset.units %>
+                <br>
+              <% end %>
+              <% if asset.shops.present? %>
+                <i class="fas fa-store"></i> Shops:  <%= asset.shops %>
+                <br>
+              <% end %>
+              <i class="fas fa-home"></i> Type: <%= asset.kind.titleize %>
+              <br>
+              <% if asset.floors.present? %>
+                <i class="fas fa-building"></i> Floors:  <%= asset.floors %>
+                <br>
+              <% end %>
+              <% if asset.parking.present? %>
+                <i class="fas fa-car-side"></i> Parking:  <%= asset.parking %>
+                <br>
+              <% end %>
+              <% if asset.air_cond != nil %>
+                <i class="fas fa-snowflake"></i> Air Condition: <%= asset.air_cond %>
+                <br>
+              <% end %>
+            </p>
+
+          </a>
+          <a class="btn btn-warning">Buy</a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <%= paginate @assets %>
+</main>
