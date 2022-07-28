@@ -15,6 +15,7 @@
  */
 
 @import url("https://ga.jspm.io/npm:bootstrap@5.2.0/dist/css/bootstrap.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css");
 
 #home {
   a {
@@ -22,7 +23,7 @@
   }
 
   .card {
-    min-height: 537px;
+    min-height: 500px;
   }
 
   .pagination {

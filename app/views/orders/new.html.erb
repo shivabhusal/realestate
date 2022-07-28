@@ -1,9 +1,12 @@
 <%= image_tag url_for(@asset.pictures.first) %>
 <div class="card-body">
-  <p><%= @asset.address %></p>
   <p>
+    <i class="fas fa-map"></i> Address: <%= @asset.address %>
+    <br>
+    <i class="fas fa-building"></i> Type: <%= @asset.class.name.titleize %>
+    <br>
+    <br>
     <i class="fas fa-money-bill-alt"></i> Price: $<%= @asset.price %>
-    <i class="fas fa-home"></i> Type: <%= @asset.class.name.titleize %>
     <br>
     <%= render "#{@asset.class.name.underscore}" %>
   </p>

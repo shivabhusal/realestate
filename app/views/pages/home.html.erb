@@ -1,14 +1,20 @@
 <h1>Properties</h1>
 <main id="home">
+  <%= paginate @assets %>
   <div class="row">
-    <%= paginate @assets %>
 
     <% @assets.each do |asset| %>
-      <div class="col-md-4" >
+      <div class="col-md-4">
         <div class="card w-100 my-4" style="width: 18rem;">
-          <%= image_tag url_for(asset.pictures.first) %>
-          <a class="card-body" href="<%= [asset.kind.underscore.pluralize, asset.id].join('/') %>">
-            <p><%= asset.address %></p>
+          <a class="card-body" href="<%= new_order_path(kind: asset.kind, id: asset.id) %>">
+            <%= image_tag url_for(asset.pictures.first), class: 'w-100' %>
+            <br>
+            <br>
+            <i class="fas fa-map"></i> Type: <%= asset.address %>
+            <br>
+            <i class="fas fa-home"></i> Type: <%= asset.kind.titleize %>
+            <br>
+            <br>
             <p>
               <i class="fas fa-money-bill-alt"></i> Price: $<%= asset.price %>
               <br>
@@ -20,8 +26,6 @@
                 <i class="fas fa-store"></i> Shops:  <%= asset.shops %>
                 <br>
               <% end %>
-              <i class="fas fa-home"></i> Type: <%= asset.kind.titleize %>
-              <br>
               <% if asset.floors.present? %>
                 <i class="fas fa-building"></i> Floors:  <%= asset.floors %>
                 <br>
@@ -35,9 +39,7 @@
                 <br>
               <% end %>
             </p>
-
           </a>
-          <%= link_to 'Buy', new_order_path(kind: asset.kind, id: asset.id), class: 'btn btn-warning' %>
         </div>
       </div>
     <% end %>

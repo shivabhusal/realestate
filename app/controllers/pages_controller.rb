@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def home
-    @assets = Property.order(:updated_at).page(params[:page])
+    @assets = Property.order(updated_at: :desc).page(params[:page])
   end
 end

@@ -23,9 +23,7 @@ images = {
                            price:       rand(2..9) * 100000
   file_name = images[House].sample + '.jpg'
   h.pictures.attach(io: File.open(Rails.root.join('app/assets/images', file_name)), filename: file_name)
-end
 
-10.times do
   com       = CommercialUnit.create owner:       Faker::Name.name,
                                     owner_email: Faker::Internet.email,
                                     address:     Faker::Address.street_address,
@@ -36,9 +34,6 @@ end
   file_name = images[CommercialUnit].sample + '.jpg'
   com.pictures.attach(io: File.open(Rails.root.join('app/assets/images', file_name)), filename: file_name)
 
-end
-
-10.times do
   comp = ComplexBuilding.create owner:       Faker::Name.name,
                                 owner_email: Faker::Internet.email,
                                 address:     Faker::Address.street_address,
@@ -53,6 +48,5 @@ end
 5.times do |i|
   User.create name: Faker::Name.name, email: "user#{i}@example.com", password: 'password', password_confirmation: 'password'
 end
-
 
 puts "Seeding Done!"
