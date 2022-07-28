@@ -102,3 +102,6 @@ classDiagram
   - redis
   - sidekiq
     - ```bundle exec sidekiq```
+
+## Screenshot
+![](./screenshot.png)
