@@ -2,6 +2,26 @@
 
 A real estate purchasing platform at your service.
 
+## Project setup Guideline
+```
+# Clone code
+git clone git@github.com:shivabhusal/realestate.git
+
+# bundle gems
+bundle install
+
+# Install dependencies
+brew install redis imagemagick vips
+
+# Create workable data for development
+rails db:create db:migrate db:seed
+
+# run rails server
+rails s
+```
+
+You can open http://localhost:3000/admin/sidekiq for sidekiq dashboard 
+
 ## Admin Section
 It has a separate admin panel to manage properties. Visit `/admin` to access the portal. 
 
